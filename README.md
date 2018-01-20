@@ -1,2 +1,2 @@
-# Relational-Image-Map
-Images from social media plotted onto a map using EXIF data.
+# Frontend Server
+Frontend server for the web app
