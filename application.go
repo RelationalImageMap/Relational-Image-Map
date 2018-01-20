@@ -5,8 +5,9 @@ import (
 	"log"
 	"os"
 
-	"github.com/gin-gonic/gin"
+	"github.com/alecthomas/template"
 	"github.com/gin-contrib/gzip"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -48,6 +49,11 @@ func main() {
 	// Initialize engine and files
 	router := gin.Default()
 	router.Use(gzip.Gzip(gzip.BestCompression))
+	html, err := template.New("").Delims("[[", "]]").ParseFiles("")
+	if err != nil {
+		panic(err)
+	}
+	router.SetHTMLTemplate(html)
 
 	// Start server
 	router.Run()
